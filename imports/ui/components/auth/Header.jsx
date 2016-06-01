@@ -10,6 +10,6 @@ export default class AuthHeader extends Component {
           </div>
         </nav>
       </div>
-    )
+    );
   }
 }
