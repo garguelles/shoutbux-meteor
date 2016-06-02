@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 
 export default class AuthHeader extends Component {
   render() {
@@ -6,7 +7,7 @@ export default class AuthHeader extends Component {
       <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo center">ShoutBux</a>
+            <Link className='brand-logo center' to='/'>ShoutBux</Link>
           </div>
         </nav>
       </div>
