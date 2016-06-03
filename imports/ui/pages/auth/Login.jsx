@@ -35,7 +35,7 @@ export default class Login extends Component {
                   <button type='submit' className='right waves-effect waves-light btn'>Login</button>
                 </div>
                 <div className='col s12'>
-                  <Link className='right signup-link' to='/auth/signup'>Create an account</Link>
+                  <Link className='right signup-link' to='signup'>Create an account</Link>
                 </div>
               </div>
             </div>

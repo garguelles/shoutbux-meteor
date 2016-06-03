@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 // import components
 import AppLayout from '../../ui/layouts/App';
@@ -10,12 +10,12 @@ import AuthLayout from '../../ui/layouts/Auth';
 
 export const renderRoutes = () => (
   <Router history={browserHistory}>
-    <Route path='/' component={AppLayout}>
-      <Route path='help' component={Help}></Route>
-    </Route>
-    <Route path='/auth' component={AuthLayout}>
-      <Route path='login' component={Login}></Route>
+    <Route path='/' component={AuthLayout}>
+      <IndexRoute component={Login} />
       <Route path='signup' component={Signup}></Route>
+    </Route>
+    <Route path='/app' component={AppLayout}>
+      <Route path=':username' component={Help}></Route>
     </Route>
   </Router>
 );
