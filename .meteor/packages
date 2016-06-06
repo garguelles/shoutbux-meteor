@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 materialize:materialize
 seba:minifiers-autoprefixer
 fourseven:scss
+accounts-password

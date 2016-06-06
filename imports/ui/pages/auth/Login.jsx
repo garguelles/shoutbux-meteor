@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor() {
     super();
@@ -10,6 +10,10 @@ export default class Login extends Component {
   _handleSubmit(event) {
     event.preventDefault();
     console.log('submit');
+  }
+
+  componentDidMount() {
+    console.log('props', this.props);
   }
 
   render() {
@@ -45,3 +49,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login)
