@@ -25,7 +25,7 @@ class Signup extends Component {
     if (this._validatePassword()) {
       let user = this._buildUser();
       Accounts.createUser(user, (error) => {
-        if (error) {
+       if (error) {
           alert(error.reason);
         } else {
           alert('registered');

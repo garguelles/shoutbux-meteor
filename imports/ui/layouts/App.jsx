@@ -8,7 +8,6 @@ export default class App extends Component {
       <div class='main'>
         <Nav />
         <div className='container'>
-          <h3>test layout</h3>
           {this.props.children}
         </div>
       </div>

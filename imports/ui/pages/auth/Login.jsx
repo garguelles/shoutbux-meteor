@@ -15,7 +15,12 @@ class Login extends Component {
       if (error) {
         alert(error.reason);
       } else {
-        this.props.router.replace('/app');
+        let { location } = this.props;
+        if (location.state && location.state.nextPathname) {
+          this.props.router.replace(location.state.nextPathname)
+        } else {
+          this.props.router.replace('/app')
+        }
       }
     });
   }
