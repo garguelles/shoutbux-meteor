@@ -75,7 +75,6 @@ class Signup extends Component {
       </div>
     );
   }
-
 }
 
 export default withRouter(Signup);

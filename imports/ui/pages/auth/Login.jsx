@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
+import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from 'meteor/meteor';
 
 class Login extends Component {
 
@@ -7,18 +9,21 @@ class Login extends Component {
     super();
   }
 
-  _handleSubmit(event) {
+  _login(event) {
     event.preventDefault();
-    console.log('submit');
-  }
-
-  componentDidMount() {
+    Meteor.loginWithPassword(this._username.value, this._password.value, (error) => {
+      if (error) {
+        alert(error.reason);
+      } else {
+        this.props.router.replace('/app');
+      }
+    });
   }
 
   render() {
     return (
       <div className='login-page row'>
-        <form className='login-form' onSubmit={this._handleSubmit.bind(this)}>
+        <form className='login-form' onSubmit={this._login.bind(this)}>
           <div className='row'>
             <div className='input-field col s12'>
               <input ref={(input) => this._username = input} type='text' className='validate' id='username' />
@@ -27,7 +32,7 @@ class Login extends Component {
           </div>
           <div className='row'>
             <div className='input-field col s12'>
-              <input ref={(input) => this._password = input} type='text' className='validate' id='password' />
+              <input ref={(input) => this._password = input} type='password' className='validate' id='password' />
               <label for='password'>password</label>
             </div>
           </div>
