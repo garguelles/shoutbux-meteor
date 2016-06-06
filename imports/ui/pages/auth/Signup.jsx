@@ -26,9 +26,10 @@ class Signup extends Component {
       let user = this._buildUser();
       Accounts.createUser(user, (error) => {
         if (error) {
-          alert('something went wrong');
+          alert(error.reason);
         } else {
           alert('registered');
+          this.props.router.replace('/');
         }
       });
     } else {

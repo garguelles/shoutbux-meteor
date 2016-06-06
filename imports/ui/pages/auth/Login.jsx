@@ -13,7 +13,6 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    console.log('props', this.props);
   }
 
   render() {
