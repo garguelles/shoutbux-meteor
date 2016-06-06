@@ -8,7 +8,7 @@ class Nav extends Component {
     event.preventDefault();
     Meteor.logout((error) => {
       if (error) {
-        alert(error.reason);
+        Materialize.toast(error.reason, 3000, 'error');
       } else {
         this.props.router.replace('/');
       }
@@ -19,7 +19,7 @@ class Nav extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Logo</a>
+          <a href="#" className="brand-logo">Shoutbux</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
               <a href='#' onClick={this._logout.bind(this)}>Logout</a>

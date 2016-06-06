@@ -26,14 +26,13 @@ class Signup extends Component {
       let user = this._buildUser();
       Accounts.createUser(user, (error) => {
        if (error) {
-          alert(error.reason);
+          Materialize.toast(error.reason, 3000, 'error');
         } else {
-          alert('registered');
           this.props.router.replace('/');
         }
       });
     } else {
-      alert('password doesn\'t match')
+      Materialize.toast('password doesn\'t match', 3000, 'error');
     }
 
   }

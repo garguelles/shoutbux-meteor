@@ -13,7 +13,7 @@ class Login extends Component {
     event.preventDefault();
     Meteor.loginWithPassword(this._username.value, this._password.value, (error) => {
       if (error) {
-        alert(error.reason);
+        Materialize.toast(error.reason, 3000, 'error');
       } else {
         let { location } = this.props;
         if (location.state && location.state.nextPathname) {
