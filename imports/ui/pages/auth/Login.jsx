@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
+import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from 'meteor/meteor';
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor() {
     super();
   }
 
-  _handleSubmit(event) {
+  _login(event) {
     event.preventDefault();
-    console.log('submit');
+    Meteor.loginWithPassword(this._username.value, this._password.value, (error) => {
+      if (error) {
+        alert(error.reason);
+      } else {
+        this.props.router.replace('/app');
+      }
+    });
   }
 
   render() {
     return (
       <div className='login-page row'>
-        <form className='login-form' onSubmit={this._handleSubmit.bind(this)}>
+        <form className='login-form' onSubmit={this._login.bind(this)}>
           <div className='row'>
             <div className='input-field col s12'>
               <input ref={(input) => this._username = input} type='text' className='validate' id='username' />
@@ -24,7 +32,7 @@ export default class Login extends Component {
           </div>
           <div className='row'>
             <div className='input-field col s12'>
-              <input ref={(input) => this._password = input} type='text' className='validate' id='password' />
+              <input ref={(input) => this._password = input} type='password' className='validate' id='password' />
               <label for='password'>password</label>
             </div>
           </div>
@@ -45,3 +53,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default withRouter(Login)
