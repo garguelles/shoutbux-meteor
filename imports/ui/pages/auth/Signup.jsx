@@ -25,22 +25,21 @@ class Signup extends Component {
     if (this._validatePassword()) {
       let user = this._buildUser();
       Accounts.createUser(user, (error) => {
-        if (error) {
-          alert(error.reason);
+       if (error) {
+          Materialize.toast(error.reason, 3000, 'error');
         } else {
-          alert('registered');
           this.props.router.replace('/');
         }
       });
     } else {
-      alert('password doesn\'t match')
+      Materialize.toast('password doesn\'t match', 3000, 'error');
     }
 
   }
 
   render() {
     return (
-      <div className='signup-page'>
+      <div className='signup-page page'>
         <form className='signup-form' onSubmit={this._createAccount.bind(this)}>
           <div className='row'>
             <div className='input-field col s12'>

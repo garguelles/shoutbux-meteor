@@ -13,16 +13,21 @@ class Login extends Component {
     event.preventDefault();
     Meteor.loginWithPassword(this._username.value, this._password.value, (error) => {
       if (error) {
-        alert(error.reason);
+        Materialize.toast(error.reason, 3000, 'error');
       } else {
-        this.props.router.replace('/app');
+        let { location } = this.props;
+        if (location.state && location.state.nextPathname) {
+          this.props.router.replace(location.state.nextPathname)
+        } else {
+          this.props.router.replace('/app')
+        }
       }
     });
   }
 
   render() {
     return (
-      <div className='login-page row'>
+      <div className='login-page page row'>
         <form className='login-form' onSubmit={this._login.bind(this)}>
           <div className='row'>
             <div className='input-field col s12'>
