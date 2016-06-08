@@ -22,3 +22,4 @@ materialize:materialize
 seba:minifiers-autoprefixer
 fourseven:scss
 accounts-password
+react-meteor-data

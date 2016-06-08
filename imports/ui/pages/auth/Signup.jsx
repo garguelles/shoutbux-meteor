@@ -39,7 +39,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className='signup-page'>
+      <div className='signup-page page'>
         <form className='signup-form' onSubmit={this._createAccount.bind(this)}>
           <div className='row'>
             <div className='input-field col s12'>

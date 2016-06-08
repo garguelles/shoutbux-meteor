@@ -27,7 +27,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className='login-page row'>
+      <div className='login-page page row'>
         <form className='login-form' onSubmit={this._login.bind(this)}>
           <div className='row'>
             <div className='input-field col s12'>

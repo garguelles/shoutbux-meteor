@@ -10,9 +10,11 @@ import Signup from '../../ui/pages/auth/Signup';
 import AuthLayout from '../../ui/layouts/Auth';
 import Profile from '../../ui/pages/Profile';
 
+window.__Meteor = Meteor;
+
 // check if user is logged-in
 function requireAuthentication(nextState, replace) {
-  let user = Meteor.user();
+  let user = Meteor.userId();
   if (!user) {
     replace({
       pathName: '/',
@@ -21,10 +23,17 @@ function requireAuthentication(nextState, replace) {
   }
 }
 
+function isLoggedIn(nextState, replace) {
+  let user = Meteor.userId();
+  if (user) {
+    replace('/app/profile');
+  }
+}
+
 export const renderRoutes = () => (
   <Router history={browserHistory}>
     <Route path='/' component={AuthLayout}>
-      <IndexRoute component={Login} />
+      <IndexRoute component={Login} onEnter={isLoggedIn} />
       <Route path='signup' component={Signup}></Route>
     </Route>
     <Route path='/app' component={AppLayout}>
