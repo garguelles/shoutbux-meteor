@@ -11,8 +11,22 @@ export default class UserProfile extends Component {
           <img src='http://placehold.it/100x100' className='responsive-img profile-image' />
         </div>
         <div className='col s9'>
-          <p>{`${profile.firstName} ${profile.lastName}`}</p>
-          <p>@{this.props.username}</p>
+          <span className='fullname'>{`${profile.firstName} ${profile.lastName}`}</span>
+          <span className='username'>@{this.props.username}</span>
+        </div>
+        <div className='col s12 user-stats'>
+          <div className='col s4'>
+            <span className='shouts-count-label count-label'>shouts</span>
+            <span className='shouts-count count-value'>0</span>
+          </div>
+          <div className='col s4'>
+            <span className='followers-count-label count-label'>shouts</span>
+            <span className='folowers-count count-value'>0</span>
+          </div>
+          <div className='col s4'>
+            <span className='following-count-label count-label'>shouts</span>
+            <span className='following-count count-value'>0</span>
+          </div>
         </div>
       </div>
     );
