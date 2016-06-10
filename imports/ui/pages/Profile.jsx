@@ -20,7 +20,7 @@ class Profile extends Component {
 
 Profile.propTypes = {
   currentUser: PropTypes.object
-}
+};
 
 export default createContainer(() => {
   return {

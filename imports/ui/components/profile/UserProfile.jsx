@@ -3,9 +3,7 @@ import React, { Component, PropTypes } from 'react';
 export default class UserProfile extends Component {
 
   render() {
-    console.log('user profile', this.props);
     const profile = this.props.profile;
-    const username = this.props.username;
 
     return (
       <div className='row user-profile-component'>
