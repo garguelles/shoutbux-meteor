@@ -16,10 +16,10 @@ standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-insecure                # Allow all DB writes from clients (for prototyping)
 materialize:materialize
 seba:minifiers-autoprefixer
 fourseven:scss
 accounts-password
 react-meteor-data
 meteorhacks:kadira
+aldeed:simple-schema
