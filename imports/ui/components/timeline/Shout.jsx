@@ -1,13 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Shout extends Component {
+
+  _getFullName() {
+    let profile = this.props.user.profile;
+    return `${profile.firstName} ${profile.lastName}`;
+  }
+
   render() {
+    console.log(this.props.user);
     return (
       <div className='card shout-component'>
         <div className='card-content'>
           <span className='card-title'>
-            <span className='fullname'>{this.props.name}</span>
-            <span className='username'>@{this.props.username}</span>
+            <span className='fullname'>{this._getFullName()}</span>
+            <span className='username'>@{this.props.user.username}</span>
           </span>
           <p className='shout-bofy'>
             {this.props.body}
@@ -25,6 +32,5 @@ export default class Shout extends Component {
 Shout.propTypes = {
   body: PropTypes.string.isRequired,
   dateCreated: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired
+  user: PropTypes.object
 };
