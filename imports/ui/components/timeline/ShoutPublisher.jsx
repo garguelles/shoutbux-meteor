@@ -1,9 +1,10 @@
 import React, { Component  } from 'react';
+import { postShout } from '/imports/api/shouts/methods';
 
 export default class ShoutPublisher extends Component {
 
   _postShout() {
-    console.log(this._body.value);
+    postShout.call({ body: this._body.value });
   }
 
   render() {

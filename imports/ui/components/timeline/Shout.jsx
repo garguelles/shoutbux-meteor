@@ -8,7 +8,6 @@ export default class Shout extends Component {
   }
 
   render() {
-    console.log(this.props.user);
     return (
       <div className='card shout-component'>
         <div className='card-content'>
