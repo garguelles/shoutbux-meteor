@@ -7,7 +7,6 @@ import Shout from './Shout';
 class ShoutList extends Component {
 
   _renderShouts() {
-    console.log('le shouts', this.props.shouts);
     return this.props.shouts.map((shout) => (
       <Shout key={shout._id} body={shout.body}
         dateCreated={shout.dateCreated.toString()} user={shout.user()} />

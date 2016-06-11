@@ -6,7 +6,6 @@ export const Shouts = new Mongo.Collection('shouts');
 
 Shouts.helpers({
   user() {
-    console.log(this, Meteor.users.findOne(this.userId));
     return Meteor.users.findOne(this.userId);
   }
 });
