@@ -2,8 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import UserProfile from '../components/profile/UserProfile';
+import TimelineWrapper from '../components/timeline/TimelineWrapper';
 
 class Profile extends Component {
+
   render() {
     const profile = this.props.currentUser ? this.props.currentUser.profile : {};
     const username = this.props.currentUser ? this.props.currentUser.username : '';
@@ -12,7 +14,9 @@ class Profile extends Component {
         <aside className='col s4'>
           <UserProfile profile={profile} username={username} />
         </aside>
-        <div className='col s8'>timeline</div>
+        <div className='col s8'>
+          <TimelineWrapper />
+        </div>
       </div>
     );
   }

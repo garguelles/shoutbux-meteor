@@ -10,8 +10,6 @@ import Signup from '../../ui/pages/auth/Signup';
 import AuthLayout from '../../ui/layouts/Auth';
 import Profile from '../../ui/pages/Profile';
 
-window.__Meteor = Meteor;
-
 // check if user is logged-in
 function requireAuthentication(nextState, replace) {
   let user = Meteor.userId();
