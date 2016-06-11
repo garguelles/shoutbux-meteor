@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShoutPublisher from './ShoutPublisher';
+import ShoutList from './ShoutList';
 
 export default class TimelineWrapper extends Component {
 
@@ -10,9 +11,9 @@ export default class TimelineWrapper extends Component {
           <ShoutPublisher />
         </div>
         <div className='col s12'>
-          Shout List
+          <ShoutList />
         </div>
       </div>
-    )
+    );
   }
 };
